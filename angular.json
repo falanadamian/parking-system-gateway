@@ -1,0 +1,147 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "",
+  "projects": {
+    "parking-ticketing-system": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/workspace:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/parking-ticketing-system",
+      "sourceRoot": "apps/parking-ticketing-system/src",
+      "prefix": "parking-ticketing-system",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/parking-ticketing-system",
+            "index": "apps/parking-ticketing-system/src/index.html",
+            "main": "apps/parking-ticketing-system/src/main.ts",
+            "polyfills": "apps/parking-ticketing-system/src/polyfills.ts",
+            "tsConfig": "apps/parking-ticketing-system/tsconfig.app.json",
+            "assets": [
+              "apps/parking-ticketing-system/src/favicon.ico",
+              "apps/parking-ticketing-system/src/assets"
+            ],
+            "styles": ["apps/parking-ticketing-system/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/parking-ticketing-system/src/environments/environment.ts",
+                  "with": "apps/parking-ticketing-system/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "parking-ticketing-system:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "parking-ticketing-system:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "parking-ticketing-system:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/parking-ticketing-system/tsconfig.app.json",
+              "apps/parking-ticketing-system/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/parking-ticketing-system/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/parking-ticketing-system/jest.config.js",
+            "tsConfig": "apps/parking-ticketing-system/tsconfig.spec.json",
+            "setupFile": "apps/parking-ticketing-system/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "parking-ticketing-system-e2e": {
+      "root": "apps/parking-ticketing-system-e2e",
+      "sourceRoot": "apps/parking-ticketing-system-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/parking-ticketing-system-e2e/cypress.json",
+            "tsConfig": "apps/parking-ticketing-system-e2e/tsconfig.e2e.json",
+            "devServerTarget": "parking-ticketing-system:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "parking-ticketing-system:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "apps/parking-ticketing-system-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/parking-ticketing-system-e2e/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "warnings": {
+      "typescriptMismatch": false,
+      "versionMismatch": false
+    },
+    "defaultCollection": "@nrwl/angular"
+  },
+  "schematics": {
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    }
+  },
+  "defaultProject": "parking-ticketing-system"
+}
