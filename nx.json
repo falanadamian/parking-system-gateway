@@ -25,6 +25,9 @@
     },
     "domain": {
       "tags": []
+    },
+    "ui-machine-interface": {
+      "tags": []
     }
   }
 }

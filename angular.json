@@ -310,6 +310,37 @@
           "styleext": "scss"
         }
       }
+    },
+    "ui-machine-interface": {
+      "projectType": "library",
+      "root": "libs/ui-machine-interface",
+      "sourceRoot": "libs/ui-machine-interface/src",
+      "prefix": "ui",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/ui-machine-interface/tsconfig.lib.json",
+              "libs/ui-machine-interface/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/ui-machine-interface/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/ui-machine-interface/jest.config.js",
+            "tsConfig": "libs/ui-machine-interface/tsconfig.spec.json",
+            "setupFile": "libs/ui-machine-interface/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
     }
   },
   "cli": {

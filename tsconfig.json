@@ -19,7 +19,10 @@
       "@parking-ticketing-system/angular-material": [
         "libs/angular-material/src/index.ts"
       ],
-      "@parking-ticketing-system/domain": ["libs/domain/src/index.ts"]
+      "@parking-ticketing-system/domain": ["libs/domain/src/index.ts"],
+      "@parking-ticketing-system/ui-machine-interface": [
+        "libs/ui-machine-interface/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]
