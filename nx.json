@@ -25,6 +25,9 @@
     },
     "domain": {
       "tags": []
+    },
+    "ui-keypad": {
+      "tags": []
     }
   }
 }

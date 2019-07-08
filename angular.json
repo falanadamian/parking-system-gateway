@@ -276,10 +276,7 @@
               "libs/angular-material/tsconfig.lib.json",
               "libs/angular-material/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/angular-material/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/angular-material/**"]
           }
         },
         "test": {
@@ -310,10 +307,7 @@
               "libs/domain/tsconfig.lib.json",
               "libs/domain/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/domain/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/domain/**"]
           }
         },
         "test": {
@@ -322,6 +316,37 @@
             "jestConfig": "libs/domain/jest.config.js",
             "tsConfig": "libs/domain/tsconfig.spec.json",
             "setupFile": "libs/domain/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "ui-keypad": {
+      "projectType": "library",
+      "root": "libs/ui-keypad",
+      "sourceRoot": "libs/ui-keypad/src",
+      "prefix": "ui",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/ui-keypad/tsconfig.lib.json",
+              "libs/ui-keypad/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/ui-keypad/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/ui-keypad/jest.config.js",
+            "tsConfig": "libs/ui-keypad/tsconfig.spec.json",
+            "setupFile": "libs/ui-keypad/src/test-setup.ts"
           }
         }
       },
