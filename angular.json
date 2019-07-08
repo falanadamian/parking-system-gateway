@@ -26,8 +26,15 @@
               "apps/parking-ticketing-system/src/favicon.ico",
               "apps/parking-ticketing-system/src/assets"
             ],
-            "styles": ["apps/parking-ticketing-system/src/styles.scss"],
-            "scripts": []
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "apps/parking-ticketing-system/src/styles.scss"
+            ],
+            "scripts": [
+              "./node_modules/jquery/dist/jquery.min.js",
+              "./node_modules/bootstrap/dist/js/bootstrap.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -149,8 +156,15 @@
               "apps/parking-payments-system/src/favicon.ico",
               "apps/parking-payments-system/src/assets"
             ],
-            "styles": ["apps/parking-payments-system/src/styles.scss"],
-            "scripts": []
+            "styles": [
+              "./node_modules/jquery/dist/jquery.min.js",
+              "./node_modules/bootstrap/dist/js/bootstrap.js",
+              "apps/parking-payments-system/src/styles.scss"
+            ],
+            "scripts": [
+              "./node_modules/jquery/dist/jquery.min.js",
+              "./node_modules/bootstrap/dist/js/bootstrap.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -262,7 +276,10 @@
               "libs/angular-material/tsconfig.lib.json",
               "libs/angular-material/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/angular-material/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/angular-material/**"
+            ]
           }
         },
         "test": {
@@ -293,7 +310,10 @@
               "libs/domain/tsconfig.lib.json",
               "libs/domain/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/domain/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/domain/**"
+            ]
           }
         },
         "test": {
