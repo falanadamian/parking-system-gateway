@@ -1,3 +1,24 @@
-<p>
-  keypad works!
-</p>
+<div class="btn-group-vertical btn-group-lg" role="group" aria-label="Basic example">
+
+  <div class="btn-group">
+    <input [(ngModel)]="digits" name="keypadValue" disabled="true" class="text-center form-control-md mb-2">
+  </div>
+
+  <div class="btn-group" *ngFor="let row of rows; let rowIndex = index">
+    <ng-container *ngFor="let key of keys; let keyIndex = index">
+      <button *ngIf="keyIndex%rows.length == rowIndex"
+              (click)="onKeyClick(key)"
+              type="button"
+              class="btn btn-lg btn-outline-warning p-2">
+        {{key}}
+      </button>
+    </ng-container>
+  </div>
+
+  <div class="btn-group">
+    <button (click)="resetInput()" type="button" class="btn btn-lg btn-outline-warning py-3">C</button>
+    <button (click)="onKeyClick(0)" type="button" class="btn btn-lg btn-outline-warning py-3">0</button>
+    <button (click)="undoInput()" type="button" class="btn btn-lg btn-outline-warning py-3">&lt;</button>
+  </div>
+
+</div>
