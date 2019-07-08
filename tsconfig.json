@@ -18,7 +18,8 @@
     "paths": {
       "@parking-ticketing-system/angular-material": [
         "libs/angular-material/src/index.ts"
-      ]
+      ],
+      "@parking-ticketing-system/domain": ["libs/domain/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
