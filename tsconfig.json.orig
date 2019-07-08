@@ -20,10 +20,13 @@
         "libs/angular-material/src/index.ts"
       ],
       "@parking-ticketing-system/domain": ["libs/domain/src/index.ts"],
-      "@parking-ticketing-system/ui-keypad": ["libs/ui-keypad/src/index.ts"],
+<<<<<<< HEAD
       "@parking-ticketing-system/ui-machine-interface": [
         "libs/ui-machine-interface/src/index.ts"
       ]
+=======
+      "@parking-ticketing-system/ui-keypad": ["libs/ui-keypad/src/index.ts"]
+>>>>>>> develop
     }
   },
   "exclude": ["node_modules", "tmp"]

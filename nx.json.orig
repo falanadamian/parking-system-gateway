@@ -26,10 +26,11 @@
     "domain": {
       "tags": []
     },
-	"ui-machine-interface": {
-      "tags": []
-    },
+<<<<<<< HEAD
+    "ui-machine-interface": {
+=======
     "ui-keypad": {
+>>>>>>> develop
       "tags": []
     }
   }
