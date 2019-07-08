@@ -13,6 +13,12 @@
     },
     "parking-ticketing-system": {
       "tags": []
+    },
+    "parking-payments-system-e2e": {
+      "tags": []
+    },
+    "parking-payments-system": {
+      "tags": []
     }
   }
 }

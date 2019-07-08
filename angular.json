@@ -125,6 +125,129 @@
           }
         }
       }
+    },
+    "parking-payments-system": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/workspace:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/parking-payments-system",
+      "sourceRoot": "apps/parking-payments-system/src",
+      "prefix": "parking-ticketing-system",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/parking-payments-system",
+            "index": "apps/parking-payments-system/src/index.html",
+            "main": "apps/parking-payments-system/src/main.ts",
+            "polyfills": "apps/parking-payments-system/src/polyfills.ts",
+            "tsConfig": "apps/parking-payments-system/tsconfig.app.json",
+            "assets": [
+              "apps/parking-payments-system/src/favicon.ico",
+              "apps/parking-payments-system/src/assets"
+            ],
+            "styles": ["apps/parking-payments-system/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/parking-payments-system/src/environments/environment.ts",
+                  "with": "apps/parking-payments-system/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "parking-payments-system:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "parking-payments-system:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "parking-payments-system:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/parking-payments-system/tsconfig.app.json",
+              "apps/parking-payments-system/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/parking-payments-system/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/parking-payments-system/jest.config.js",
+            "tsConfig": "apps/parking-payments-system/tsconfig.spec.json",
+            "setupFile": "apps/parking-payments-system/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "parking-payments-system-e2e": {
+      "root": "apps/parking-payments-system-e2e",
+      "sourceRoot": "apps/parking-payments-system-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/parking-payments-system-e2e/cypress.json",
+            "tsConfig": "apps/parking-payments-system-e2e/tsconfig.e2e.json",
+            "devServerTarget": "parking-payments-system:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "parking-payments-system:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "apps/parking-payments-system-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/parking-payments-system-e2e/**"
+            ]
+          }
+        }
+      }
     }
   },
   "cli": {
