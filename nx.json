@@ -19,6 +19,9 @@
     },
     "parking-payments-system": {
       "tags": []
+    },
+    "angular-material": {
+      "tags": []
     }
   }
 }
