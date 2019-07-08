@@ -279,6 +279,37 @@
           "styleext": "scss"
         }
       }
+    },
+    "domain": {
+      "projectType": "library",
+      "root": "libs/domain",
+      "sourceRoot": "libs/domain/src",
+      "prefix": "parking-ticketing-system",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/domain/tsconfig.lib.json",
+              "libs/domain/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/domain/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/domain/jest.config.js",
+            "tsConfig": "libs/domain/tsconfig.spec.json",
+            "setupFile": "libs/domain/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
     }
   },
   "cli": {

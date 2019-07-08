@@ -22,6 +22,9 @@
     },
     "angular-material": {
       "tags": []
+    },
+    "domain": {
+      "tags": []
     }
   }
 }
