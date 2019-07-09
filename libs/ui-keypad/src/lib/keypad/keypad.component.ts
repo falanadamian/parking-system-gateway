@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {KeypadTemplate} from "@parking-system/domain";
 
 @Component({
   selector: 'ui-keypad',
@@ -11,6 +12,14 @@ export class KeypadComponent implements OnInit {
   @Input() rangeEnd: number = 9;
   @Input() keypadColumns: number = 3;
   @Input() resetTime: number = 2000;
+
+  @Input()
+  set template(template: KeypadTemplate) {
+    this.rangeStart = template.rangeStart;
+    this.rangeEnd = template.rangeEnd;
+    this.keypadColumns = template.keypadColumns;
+    this.resetTime = template.resetTime;
+  }
 
   @Output() onKeypadChange: EventEmitter<string> = new EventEmitter<string>();
 
@@ -55,7 +64,7 @@ export class KeypadComponent implements OnInit {
   private numbersBetween(start: number, end: number): Array<number> {
     const arraySize: number = Math.floor(end) - Math.ceil(start) + 1;
     return Array(arraySize).fill(1)
-                            .map((x: number, index: number) => Math.ceil(start) + index);
+      .map((x: number, index: number) => Math.ceil(start) + index);
   }
 
   private initializeKeys() {

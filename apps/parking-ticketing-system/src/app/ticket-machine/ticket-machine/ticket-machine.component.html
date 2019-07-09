@@ -12,10 +12,7 @@
                             (contactlessClick)="handleContactlessClick()"
                             (ticketClick)="handleTicketClick()"
       >
-        <ui-keypad [resetTime]="3000"
-                   [keypadColumns]="3"
-                   [rangeStart]="1"
-                   [rangeEnd]="9"
+        <ui-keypad [template]="keypadTemplate"
                    (onKeypadChange)="callme($event)"
         ></ui-keypad>
       </ui-machine-interface>
