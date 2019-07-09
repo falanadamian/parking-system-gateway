@@ -16,13 +16,14 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@parking-ticketing-system/angular-material": [
+      "@parking-system/angular-material": [
         "libs/angular-material/src/index.ts"
       ],
-      "@parking-ticketing-system/domain": ["libs/domain/src/index.ts"],
-      "@parking-ticketing-system/ui-keypad": ["libs/ui-keypad/src/index.ts"],
-      "@parking-ticketing-system/ui-machine-interface": [
-        "libs/ui-machine-interface/src/index.ts"
+      "@parking-system/domain": [
+        "libs/domain/src/index.ts"
+      ],
+      "@parking-system/ui-keypad": [
+        "libs/ui-keypad/src/index.ts"
       ]
     }
   },
