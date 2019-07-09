@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {MachineState, CarStop} from "@parking-system/domain";
+import {MachineState, CarStop, KeypadTemplate} from "@parking-system/domain";
 
 @Component({
   selector: 'parking-ticketing-system-ticket-machine',
@@ -8,9 +8,16 @@ import {MachineState, CarStop} from "@parking-system/domain";
 })
 export class TicketMachineComponent implements OnInit {
 
+  readonly keypadTemplate: KeypadTemplate = new KeypadTemplate.Builder()
+                                                              .withResetTime(2500)
+                                                              .withKeypadColumns(3)
+                                                              .withRangeStart(1)
+                                                              .withRangeEnd(2)
+                                                              .build();
+
   readonly MACHINE_BRAND: string = "BRANDNEW";
-  readonly PRE_MESSAGE: string = "Welcome to ticket machine service!"
-  postMessage: string = `Wait for 3 seconds after you entered the data.`;
+  readonly PRE_MESSAGE: string = "Welcome to ticket machine service!";
+  postMessage: string = `Wait for ${this.keypadTemplate.resetTime/1000} seconds after you entered the data.`;
 
   options: Array<string> = [
     "Press 1 to get a ticket and enter parking",
