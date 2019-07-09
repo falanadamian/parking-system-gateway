@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {TicketPrintTemplate} from "@parking-system/domain";
 
 @Component({
   selector: 'ui-ticket-print',
@@ -6,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ticket-print.component.scss']
 })
 export class TicketPrintComponent implements OnInit {
+
+  @Input() template: TicketPrintTemplate;
+
+  @Input() animated: boolean = false;
+  @Input() animate: boolean = false;
 
   constructor() { }
 

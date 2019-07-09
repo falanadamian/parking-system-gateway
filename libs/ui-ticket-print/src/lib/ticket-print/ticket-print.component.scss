@@ -1,0 +1,15 @@
+@import "../ticket-variables";
+
+.card {
+  visibility: hidden;
+  height: $ticket-initial-height*2;
+  transition: $ticket-transition;
+  overflow: hidden;
+  z-index: 1;
+  cursor: pointer;
+
+  &.animate {
+    visibility: visible;
+    height: $ticket-height;
+  }
+}

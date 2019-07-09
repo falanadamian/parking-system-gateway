@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {MachineState, CarStop, KeypadTemplate} from "@parking-system/domain";
+import {MachineState, CarStop, KeypadTemplate, TicketPrintTemplate} from "@parking-system/domain";
 
 @Component({
   selector: 'parking-ticketing-system-ticket-machine',
@@ -14,6 +14,16 @@ export class TicketMachineComponent implements OnInit {
                                                               .withRangeStart(1)
                                                               .withRangeEnd(2)
                                                               .build();
+
+  ticketTemplate: TicketPrintTemplate = new TicketPrintTemplate.Builder()
+    .withAvatarUrl("https://www.safetyshop.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/d/m/dmeu_y4026215_std.lang.all.png")
+    .withTitle("Title")
+    .withSubtitle("subtitle")
+    .withContent(new Map([
+      ["Raz", "Eins"],
+      ["Dwa", "Zwei"]
+    ]))
+    .build();
 
   readonly MACHINE_BRAND: string = "BRANDNEW";
   readonly PRE_MESSAGE: string = "Welcome to ticket machine service!";
