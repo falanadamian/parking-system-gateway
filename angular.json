@@ -358,6 +358,7 @@
           "styleext": "scss"
         }
       }
+    },
     "ui-machine-interface": {
       "projectType": "library",
       "root": "libs/ui-machine-interface",

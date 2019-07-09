@@ -1,0 +1,24 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xl">
+      <ui-machine-interface [brand]="MACHINE_BRAND"
+                            [preMessage]="PRE_MESSAGE"
+                            [message]="response"
+                            [postMessage]="postMessage"
+                            [options]="options"
+                            [machineState]="machineState"
+                            [animateTicket]="animateTicket()"
+                            (keypadValueChange)="handleKeypadChange($event)"
+                            (contactlessClick)="handleContactlessClick()"
+                            (ticketClick)="handleTicketClick()"
+      >
+        <ui-keypad [resetTime]="3000"
+                   [keypadColumns]="3"
+                   [rangeStart]="1"
+                   [rangeEnd]="9"
+                   (onKeypadChange)="callme($event)"
+        ></ui-keypad>
+      </ui-machine-interface>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,72 @@
+<div class="container">
+  <div class="machine-housing m-2">
+    <div class="row machine">
+      <div class="col text-center">
+        <h1 class="machine-title">{{brand}}</h1>
+      </div>
+    </div>
+    <div class="row justify-content-md-center machine">
+      <div class="col-xl-12 col-xxl-8 col-xxxl-9">
+        <div class="row machine-screen p-3 m-3">
+          <div class="col">
+            <h2 class="text-center mt-2">{{preMessage}}</h2>
+            <hr class="breaker mb-3">
+          </div>
+
+          <div class="w-100"></div>
+
+
+          <div *ngIf="message" class="col">
+            <h5 class="text-danger font-weight-bold">{{message}}</h5>
+          </div>
+
+          <div class="w-100"></div>
+
+          <ng-container *ngFor="let option of options">
+            <div class="col">
+              <h5>{{option}}</h5>
+            </div>
+            <div class="w-100"></div>
+          </ng-container>
+
+          <div class="col mt-5">
+            <h5>{{postMessage}}</h5>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-xl-12 col-xxl-4 col-xxxl-3 mt-5">
+
+        <div class="row text-center align-content-center">
+          <div class="col">
+            <ng-content select="ui-keypad"></ng-content>
+          </div>
+
+          <div class="w-100"></div>
+
+          <div class="col mt-3">
+            <button (click)="contactlessClick.emit()" mat-icon-button class="xl" color="primary">
+              <mat-icon>wifi</mat-icon>
+            </button>
+          </div>
+
+          <div class="w-100"></div>
+
+          <div class="col-xxxl-12 col-xxl-12 col-lg-8 col-md-10 mx-auto">
+            <div class="niche d-flex justify-content-center"></div>
+            <div class="circle" [ngClass]="{'animate': animateTicket}" (click)="ticketClick.emit()"></div>
+            <div class="ticket" [ngClass]="{'animate': animateTicket}" (click)="ticketClick.emit()">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="machine-stand col-sm-4 offset-sm-4 py-5">
+      <span></span>
+    </div>
+  </div>
+</div>
