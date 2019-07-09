@@ -1,0 +1,14 @@
+<mat-card class="card" [ngClass]="{'animated': animated, 'animate': animate}">
+  <mat-card-header>
+    <img mat-card-avatar [src]="template?.avatarUrl">
+    <mat-card-title>{{template?.title}}</mat-card-title>
+    <mat-card-subtitle>{{template?.subtitle}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <pre class="text-left">
+      <ng-container *ngFor="let row of template.content | keyvalue">
+        {{row.key}}: {{row.value}}
+      </ng-container>
+    </pre>
+  </mat-card-content>
+</mat-card>

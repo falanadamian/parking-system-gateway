@@ -15,6 +15,11 @@
         <ui-keypad [template]="keypadTemplate"
                    (onKeypadChange)="callme($event)"
         ></ui-keypad>
+
+        <ui-ticket-print [template]="ticketTemplate"
+                         [animated]="true"
+                         [animate]="animateTicket()"
+        ></ui-ticket-print>
       </ui-machine-interface>
     </div>
   </div>

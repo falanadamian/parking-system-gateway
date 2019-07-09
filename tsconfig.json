@@ -19,15 +19,12 @@
       "@parking-system/angular-material": [
         "libs/angular-material/src/index.ts"
       ],
-      "@parking-system/domain": [
-        "libs/domain/src/index.ts"
-      ],
-      "@parking-system/ui-keypad": [
-        "libs/ui-keypad/src/index.ts"
-      ],
+      "@parking-system/domain": ["libs/domain/src/index.ts"],
+      "@parking-system/ui-keypad": ["libs/ui-keypad/src/index.ts"],
       "@parking-system/ui-machine-interface": [
         "libs/ui-machine-interface/src/index.ts"
-      ]
+      ],
+      "@parking-system/ui-ticket-print": ["libs/ui-ticket-print/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

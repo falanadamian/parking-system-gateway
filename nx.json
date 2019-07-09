@@ -26,10 +26,13 @@
     "domain": {
       "tags": []
     },
-	"ui-machine-interface": {
+    "ui-machine-interface": {
       "tags": []
     },
     "ui-keypad": {
+      "tags": []
+    },
+    "ui-ticket-print": {
       "tags": []
     }
   }

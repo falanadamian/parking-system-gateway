@@ -276,10 +276,7 @@
               "libs/angular-material/tsconfig.lib.json",
               "libs/angular-material/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/angular-material/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/angular-material/**"]
           }
         },
         "test": {
@@ -381,6 +378,37 @@
             "jestConfig": "libs/ui-machine-interface/jest.config.js",
             "tsConfig": "libs/ui-machine-interface/tsconfig.spec.json",
             "setupFile": "libs/ui-machine-interface/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "ui-ticket-print": {
+      "projectType": "library",
+      "root": "libs/ui-ticket-print",
+      "sourceRoot": "libs/ui-ticket-print/src",
+      "prefix": "ui",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/ui-ticket-print/tsconfig.lib.json",
+              "libs/ui-ticket-print/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/ui-ticket-print/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/ui-ticket-print/jest.config.js",
+            "tsConfig": "libs/ui-ticket-print/tsconfig.spec.json",
+            "setupFile": "libs/ui-ticket-print/src/test-setup.ts"
           }
         }
       },

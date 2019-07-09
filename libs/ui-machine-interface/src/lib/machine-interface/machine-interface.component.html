@@ -57,6 +57,7 @@
             <div class="niche d-flex justify-content-center"></div>
             <div class="circle" [ngClass]="{'animate': animateTicket}" (click)="ticketClick.emit()"></div>
             <div class="ticket" [ngClass]="{'animate': animateTicket}" (click)="ticketClick.emit()">
+              <ng-content select="ui-ticket-print"></ng-content>
             </div>
           </div>
         </div>
