@@ -7,7 +7,7 @@ import {Component, HostListener, OnInit, ViewChild} from '@angular/core';
 })
 export class AppComponent implements OnInit {
 
-  private readonly SIDENAV_DISPLAY_BREAKPOINT: number = 600;
+  private readonly SIDENAV_DISPLAY_BREAKPOINT: number = 900;
 
   @ViewChild('sidenav', {static: false}) sidenav;
 

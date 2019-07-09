@@ -1,5 +1,5 @@
 {
-  "npmScope": "parking-system",
+  "npmScope": "parking-ticketing-system",
   "implicitDependencies": {
     "angular.json": "*",
     "package.json": "*",
@@ -26,10 +26,11 @@
     "domain": {
       "tags": []
     },
-	"ui-machine-interface": {
-      "tags": []
-    },
+<<<<<<< HEAD
+    "ui-machine-interface": {
+=======
     "ui-keypad": {
+>>>>>>> develop
       "tags": []
     }
   }
