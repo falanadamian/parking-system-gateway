@@ -37,8 +37,8 @@ export class CarStop implements ICarStop {
       carStop.paymentsIds ? carStop.paymentsIds : [],
       carStop.carStopStatus ? <CarStopStatus>CarStopStatus[carStop.carStopStatus] : null,
       carStop.carStopType ? <CarStopType>CarStopType[carStop.carStopType] : null,
-      carStop.entryTime,
-      carStop.departureTime
+      carStop.entryTime ? new Date(carStop.entryTime) : null,
+      carStop.departureTime ? new Date(carStop.departureTime) : null
     )
   }
 

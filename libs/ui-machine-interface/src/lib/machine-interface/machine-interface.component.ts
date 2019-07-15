@@ -1,44 +1,49 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import { MachineState } from "@parking-system/domain";
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
+import {MachineState} from "@parking-system/domain";
+import {MachineInterfaceStore} from "./store/machine-interface.store";
 
 @Component({
   selector: 'ui-machine-interface',
   templateUrl: './machine-interface.component.html',
   styleUrls: ['./machine-interface.component.scss']
 })
-export class MachineInterfaceComponent implements OnInit {
+export class MachineInterfaceComponent<T> implements OnInit, OnChanges {
 
-  @Input() brand: string = "Default title";
+  MachineState = MachineState;
 
-  @Input() preMessage: string = "Default pre message...";
-  @Input() message: string = "Default message...";
-  @Input() postMessage: string = "Default post message...";
+  @Input() brand: string;
 
-  @Input() options: Array<string> = new Array<string>();
+  @Input() preMessage: string;
+  @Input() message: string;
+  @Input() postMessage: string;
 
-  @Output() ticketClick: EventEmitter<void> = new EventEmitter<void>();
-  @Output() contactlessClick: EventEmitter<void> = new EventEmitter<void>();
+  @Output() keypadDigitsCollected: EventEmitter<string> = new EventEmitter<string>();
 
-  @Output() keypadValueChange: EventEmitter<string> = new EventEmitter<string>();
+  screenDisabled: boolean = false;
 
-  machineStateValue: MachineState = MachineState.INITIAL;
-  @Output() machineStateChange: EventEmitter<MachineState> = new EventEmitter<MachineState>();
-
-  @Input()
-  get machineState(): MachineState {
-    return this.machineStateValue;
+  ngOnChanges(changes: SimpleChanges) {
+    this.screenDisabled = true;
+    setTimeout(() => {
+      this.screenDisabled = false;
+    }, 100);
   }
 
-  set machineState(machineState: MachineState) {
-    this.machineStateValue = machineState;
-    this.machineStateChange.emit(this.machineStateValue);
+  constructor(public machineInterfaceStore: MachineInterfaceStore<T>) {
   }
-
-  @Input() animateTicket: boolean;
-
-  constructor() { }
 
   ngOnInit() {
+  }
+
+  onDigitsCollected(userInput: string) {
+    this.keypadDigitsCollected.emit(userInput);
+  }
+
+  onKeypadKeyClicked() {
+    this.machineInterfaceStore.resetStateTimeout(MachineState.INITIAL);
+  }
+
+  ticketClick() {
+    this.machineInterfaceStore.changeState(MachineState.INITIAL);
   }
 
 }

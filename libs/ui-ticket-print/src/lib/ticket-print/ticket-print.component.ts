@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, SimpleChanges} from '@angular/core';
 import {TicketPrintTemplate} from "@parking-system/domain";
 
 @Component({
@@ -9,13 +9,10 @@ import {TicketPrintTemplate} from "@parking-system/domain";
 export class TicketPrintComponent implements OnInit {
 
   @Input() template: TicketPrintTemplate;
-
-  @Input() animated: boolean = false;
   @Input() animate: boolean = false;
 
   constructor() { }
 
   ngOnInit() {
   }
-
 }

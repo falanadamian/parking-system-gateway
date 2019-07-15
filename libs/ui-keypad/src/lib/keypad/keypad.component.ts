@@ -12,16 +12,19 @@ export class KeypadComponent implements OnInit {
   @Input() rangeEnd: number = 9;
   @Input() keypadColumns: number = 3;
   @Input() resetTime: number = 2000;
+  @Input() disabled: boolean = false;
 
   @Input()
   set template(template: KeypadTemplate) {
     this.rangeStart = template.rangeStart;
     this.rangeEnd = template.rangeEnd;
     this.keypadColumns = template.keypadColumns;
-    this.resetTime = template.resetTime;
+    this.calculateKeys();
+    this.calculateRows();
   }
 
-  @Output() onKeypadChange: EventEmitter<string> = new EventEmitter<string>();
+  @Output()digitsCollected: EventEmitter<string> = new EventEmitter<string>();
+  @Output() keyClicked: EventEmitter<number> = new EventEmitter<number>();
 
   digits: string;
 
@@ -41,7 +44,7 @@ export class KeypadComponent implements OnInit {
 
   private setTimeout(): NodeJS.Timer {
     return setTimeout(() => {
-      this.onKeypadChange.emit(this.digits);
+      this.digitsCollected.emit(this.digits);
       this.resetInput();
     }, this.resetTime);
   }
@@ -51,9 +54,10 @@ export class KeypadComponent implements OnInit {
     this.timeout = this.setTimeout();
   }
 
-  onKeyClick(key: number) {
+  keyClick(key: number) {
     this.manageTimeout();
     this.digits += key;
+    this.keyClicked.emit(key);
   }
 
   undoInput() {
@@ -67,18 +71,18 @@ export class KeypadComponent implements OnInit {
       .map((x: number, index: number) => Math.ceil(start) + index);
   }
 
-  private initializeKeys() {
+  private calculateKeys() {
     this.keys = this.numbersBetween(this.rangeStart, this.rangeEnd);
   }
 
-  private initializeRows() {
+  private calculateRows() {
     const rowNumbers = Math.ceil(this.keys.length / this.keypadColumns - 1);
     this.rows = this.numbersBetween(0, rowNumbers > 0 ? rowNumbers : 1);
   }
 
   ngOnInit() {
-    this.initializeKeys();
-    this.initializeRows();
+    this.calculateKeys();
+    this.calculateRows();
   }
 
 }
