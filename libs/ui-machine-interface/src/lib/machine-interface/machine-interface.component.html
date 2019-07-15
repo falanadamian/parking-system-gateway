@@ -54,14 +54,10 @@
           </div>
           <div class="w-100"></div>
 
-          <div class="col col-xxxl-12 col-xxl-12 col-lg-8 col-md-10 mx-auto">
-            <div class="niche d-flex justify-content-center"></div>
-            <div class="circle" [ngClass]="{'animate': (machineInterfaceStore.machineState$ | async) == MachineState.TICKET_ISSUED}" (click)="ticketClick()"></div>
-            <div class="ticket" [ngClass]="{'animate': (machineInterfaceStore.machineState$ | async) == MachineState.TICKET_ISSUED}" (click)="ticketClick()">
+          <div class="col col-xxxl-12 col-xxl-12 col-lg-8 col-md-10 mx-auto" (click)="ticketClick()">
               <ui-ticket-print [template]="machineInterfaceStore.config.ticketTemplate"
                                [animate]="(machineInterfaceStore.machineState$ | async) == MachineState.TICKET_ISSUED"
               ></ui-ticket-print>
-            </div>
           </div>
         </div>
       </div>

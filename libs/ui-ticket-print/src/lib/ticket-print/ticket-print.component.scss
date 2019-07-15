@@ -1,5 +1,20 @@
 @import "../ticket-variables";
 
+@mixin centered-absolute {
+  position: absolute;
+
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+$bg-niche: rgb(22, 20, 20);
+
+.animate {
+  transform: translate3d(0, 0, 0);
+}
+
 .card {
   visibility: hidden;
   height: $ticket-initial-height*2;
@@ -7,9 +22,58 @@
   overflow: hidden;
   z-index: 1;
   cursor: pointer;
+  font-family: "Lucida Fax", Monospaced, monospace;
 
   &.animate {
     visibility: visible;
     height: $ticket-height;
   }
+}
+
+.circle {
+  @include centered-absolute;
+  visibility: hidden;
+  height: $ticket-sticker-radius;
+  width: $ticket-sticker-radius;
+  border-radius: $ticket-sticker-radius/2;
+  margin-top: $ticket-initial-height;
+  background: $bg-ticket;
+  box-shadow: $box-shadow-ticket-circle;
+  cursor: pointer;
+
+  transition: $ticket-transition;
+  z-index: 2;
+
+  &.animate {
+    visibility: visible;
+    margin-top: $ticket-height - $ticket-initial-height;
+  }
+}
+
+.ticket {
+  @include centered-absolute;
+  visibility: hidden;
+  width: $ticket-width;
+  height: $ticket-initial-height*2;
+  margin-top: $ticket-initial-margin;
+  transition: $ticket-transition;
+  box-shadow: $box-shadow-ticket;
+  background-color: $bg-ticket;
+  z-index: 1;
+  cursor: pointer;
+
+  &.animate {
+    visibility: visible;
+    height: $ticket-height;
+  }
+}
+
+.niche {
+  height: 0.825rem;
+  border: 4px solid black;
+  background-color: $bg-niche;
+}
+
+p {
+  font-family: "Lucida Fax", Monospaced, monospace;
 }
