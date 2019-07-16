@@ -8,7 +8,7 @@ import {CarStop} from "../car-stop";
 })
 export class CarStopService {
 
-  private readonly RESOURCE_URL: string = "http://localhost:8080/car-stops";
+  private readonly RESOURCE_URL: string = "/car-stops";
 
   constructor(private http: HttpClient) {
   }

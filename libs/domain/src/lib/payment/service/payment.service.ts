@@ -8,7 +8,7 @@ import {Payment} from "../payment";
 })
 export class PaymentService {
 
-  private readonly RESOURCE_URL: string = "http://localhost:8080/payments";
+  private readonly RESOURCE_URL: string = "/payments";
 
   constructor(private http: HttpClient) {
   }

@@ -9,7 +9,7 @@ import {ParkingResponse} from "../parking-response/parking-response";
 })
 export class ParkingService {
 
-  private readonly RESOURCE_URL: string = "http://localhost:8080/parking";
+  private readonly RESOURCE_URL: string = "/parking";
   private readonly PARKING_ENTRY_URL: string = `${this.RESOURCE_URL}/entry`;
   private readonly PARKING_DEPARTURE_URL: string = `${this.RESOURCE_URL}/departure`;
 
