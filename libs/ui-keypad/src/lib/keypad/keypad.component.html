@@ -7,7 +7,8 @@
   <div class="btn-group" *ngFor="let row of rows; let rowIndex = index">
     <ng-container *ngFor="let key of keys; let keyIndex = index">
       <button *ngIf="keyIndex%rows.length == rowIndex"
-              (click)="onKeyClick(key)"
+              (click)="keyClick(key)"
+              [disabled]="disabled"
               type="button"
               class="btn btn-lg btn-outline-warning p-2">
         {{key}}
@@ -16,9 +17,9 @@
   </div>
 
   <div class="btn-group">
-    <button (click)="resetInput()" type="button" class="btn btn-lg btn-outline-warning py-3">C</button>
-    <button (click)="onKeyClick(0)" type="button" class="btn btn-lg btn-outline-warning py-3">0</button>
-    <button (click)="undoInput()" type="button" class="btn btn-lg btn-outline-warning py-3">&lt;</button>
+    <button (click)="resetInput()" [disabled]="disabled" type="button" class="btn btn-lg btn-outline-warning py-3">C</button>
+    <button (click)="keyClick(0)" [disabled]="disabled" type="button" class="btn btn-lg btn-outline-warning py-3">0</button>
+    <button (click)="undoInput()" [disabled]="disabled" type="button" class="btn btn-lg btn-outline-warning py-3">&lt;</button>
   </div>
 
 </div>

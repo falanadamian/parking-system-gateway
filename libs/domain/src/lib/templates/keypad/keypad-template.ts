@@ -1,9 +1,8 @@
 export interface KeypadTemplate {
 
-  readonly resetTime?: number;
-  readonly keypadColumns?: number;
-  readonly rangeStart?: number;
-  readonly rangeEnd?: number;
+  keypadColumns: number;
+  rangeStart: number;
+  rangeEnd: number;
 }
 
 export class KeypadTemplate implements KeypadTemplate {
@@ -15,14 +14,9 @@ export class KeypadTemplate implements KeypadTemplate {
   }
 
   static Builder = class Builder implements Partial<KeypadTemplate> {
-    resetTime?: number;
     keypadColumns?: number;
     rangeStart?: number;
     rangeEnd?: number;
-
-    withResetTime(resetTime: number): this & Pick<KeypadTemplate, 'resetTime'> {
-      return Object.assign(this, {resetTime: resetTime});
-    }
 
     withKeypadColumns(keypadColumns: number): this & Pick<KeypadTemplate, 'keypadColumns'> {
       return Object.assign(this, {keypadColumns: keypadColumns});

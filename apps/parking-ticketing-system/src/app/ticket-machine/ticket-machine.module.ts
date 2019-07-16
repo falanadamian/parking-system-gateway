@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
 import {CommonModule} from '@angular/common';
 
 import {TicketMachineRoutingModule} from './ticket-machine-routing.module';
@@ -22,6 +22,7 @@ import {UiTicketPrintModule} from "@parking-system/ui-ticket-print";
   ],
   exports: [
     TicketMachineComponent
-  ]
+  ],
+  schemas: [ NO_ERRORS_SCHEMA]
 })
 export class TicketMachineModule { }

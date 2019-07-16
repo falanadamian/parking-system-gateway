@@ -3,23 +3,22 @@
     <div class="col-xl">
       <ui-machine-interface [brand]="MACHINE_BRAND"
                             [preMessage]="PRE_MESSAGE"
+                            [postMessage]="POST_MESSAGE"
                             [message]="response"
-                            [postMessage]="postMessage"
-                            [options]="options"
-                            [machineState]="machineState"
-                            [animateTicket]="animateTicket()"
-                            (keypadValueChange)="handleKeypadChange($event)"
-                            (contactlessClick)="handleContactlessClick()"
-                            (ticketClick)="handleTicketClick()"
+                            (keypadDigitsCollected)="onDigitsCollected($event)"
       >
-        <ui-keypad [template]="keypadTemplate"
-                   (onKeypadChange)="callme($event)"
-        ></ui-keypad>
+        <first-button>
+          <button (click)="issueTicket()" mat-icon-button class="xl"
+                  color="primary">
+            <mat-icon>adjust</mat-icon>
+          </button>
+        </first-button>
 
-        <ui-ticket-print [template]="ticketTemplate"
-                         [animated]="true"
-                         [animate]="animateTicket()"
-        ></ui-ticket-print>
+        <second-button>
+          <button (click)="changeState(MachineState.WAITING_FOR_INPUT)" mat-icon-button class="xl" color="primary">
+            <mat-icon>wifi</mat-icon>
+          </button>
+        </second-button>
       </ui-machine-interface>
     </div>
   </div>

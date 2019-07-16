@@ -4,6 +4,7 @@ import {MachineInterfaceComponent} from './machine-interface/machine-interface.c
 import {FormsModule} from "@angular/forms";
 import {AngularMaterialModule} from "@parking-system/angular-material";
 import {UiKeypadModule} from "@parking-system/ui-keypad";
+import {UiTicketPrintModule} from "@parking-system/ui-ticket-print";
 
 @NgModule({
   imports: [
@@ -11,6 +12,7 @@ import {UiKeypadModule} from "@parking-system/ui-keypad";
     FormsModule,
     AngularMaterialModule,
     UiKeypadModule,
+    UiTicketPrintModule
   ],
   declarations: [
     MachineInterfaceComponent
