@@ -38,7 +38,7 @@
         <div class="row text-center align-content-center">
           <div class="col">
             <ui-keypad [template]="machineInterfaceStore.config.keypadTemplate"
-                       [resetTime]="machineInterfaceStore.stateResetTime"
+                       [resetTime]="machineInterfaceStore.config.stateResetTime"
                        [disabled]="(machineInterfaceStore.machineState$ | async) != MachineState.WAITING_FOR_INPUT"
                        (keyClicked)="onKeypadKeyClicked()"
                        (digitsCollected)="onDigitsCollected($event)"
