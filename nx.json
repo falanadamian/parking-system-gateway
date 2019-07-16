@@ -1,5 +1,5 @@
 {
-  "npmScope": "parking-ticketing-system",
+  "npmScope": "parking-system",
   "implicitDependencies": {
     "angular.json": "*",
     "package.json": "*",
@@ -12,6 +12,27 @@
       "tags": []
     },
     "parking-ticketing-system": {
+      "tags": []
+    },
+    "parking-payments-system-e2e": {
+      "tags": []
+    },
+    "parking-payments-system": {
+      "tags": []
+    },
+    "angular-material": {
+      "tags": []
+    },
+    "domain": {
+      "tags": []
+    },
+    "ui-machine-interface": {
+      "tags": []
+    },
+    "ui-keypad": {
+      "tags": []
+    },
+    "ui-ticket-print": {
       "tags": []
     }
   }

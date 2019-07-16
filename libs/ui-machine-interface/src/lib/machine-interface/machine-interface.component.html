@@ -1,0 +1,72 @@
+<div class="container">
+  <div class="machine-housing">
+    <div class="row machine">
+      <div class="col text-center">
+        <h1 class="machine-title">{{brand}}</h1>
+      </div>
+    </div>
+    <div class="row machine justify-content-md-center">
+      <div class="col-xl-12 col-xxl-8 col-xxxl-9">
+        <div class="row machine-screen p-3 m-3" [ngClass]="{'machine-screen-disabled': screenDisabled}">
+          <div class="col">
+            <h2 class="text-center text-info mt-2">{{preMessage}}</h2>
+            <hr class="breaker mb-3">
+          </div>
+
+          <div class="w-100"></div>
+
+          <div class="col">
+            <h6 class="text-danger font-weight-bold">{{machineInterfaceStore.message$ | async}}</h6>
+          </div>
+
+          <div class="w-100"></div>
+
+          <ng-container *ngFor="let option of (machineInterfaceStore.options$ | async)">
+            <div class="col">
+              <h6>{{option}}</h6>
+            </div>
+            <div class="w-100"></div>
+          </ng-container>
+
+          <div class="col mt-5 font-italic text-uppercase text-right">
+            <h6>{{postMessage}}</h6>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-12 col-xxl-4 col-xxxl-3 mt-2">
+        <div class="row text-center align-content-center">
+          <div class="col">
+            <ui-keypad [template]="machineInterfaceStore.config.keypadTemplate"
+                       [resetTime]="machineInterfaceStore.config.stateResetTime"
+                       [disabled]="(machineInterfaceStore.machineState$ | async) != MachineState.WAITING_FOR_INPUT"
+                       (keyClicked)="onKeypadKeyClicked()"
+                       (digitsCollected)="onDigitsCollected($event)"
+            ></ui-keypad>
+          </div>
+          <div class="w-100"></div>
+
+          <div class="col my-3">
+            <ng-content select="first-button"></ng-content>
+          </div>
+          <div class="col my-3">
+            <ng-content select="second-button"></ng-content>
+          </div>
+          <div class="w-100"></div>
+
+          <div class="col col-xxxl-12 col-xxl-12 col-lg-8 col-md-10 mx-auto" (click)="ticketClick()">
+              <ui-ticket-print [template]="machineInterfaceStore.config.ticketTemplate"
+                               [animate]="(machineInterfaceStore.machineState$ | async) == MachineState.TICKET_ISSUED"
+              ></ui-ticket-print>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="machine-stand col-4 offset-4 py-5">
+      <span></span>
+    </div>
+  </div>
+</div>

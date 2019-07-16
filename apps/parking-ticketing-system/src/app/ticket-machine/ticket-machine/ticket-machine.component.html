@@ -1,0 +1,25 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xl">
+      <ui-machine-interface [brand]="MACHINE_BRAND"
+                            [preMessage]="PRE_MESSAGE"
+                            [postMessage]="POST_MESSAGE"
+                            [message]="response"
+                            (keypadDigitsCollected)="onDigitsCollected($event)"
+      >
+        <first-button>
+          <button (click)="issueTicket()" mat-icon-button class="xl"
+                  color="primary">
+            <mat-icon>adjust</mat-icon>
+          </button>
+        </first-button>
+
+        <second-button>
+          <button (click)="changeState(MachineState.WAITING_FOR_INPUT)" mat-icon-button class="xl" color="primary">
+            <mat-icon>wifi</mat-icon>
+          </button>
+        </second-button>
+      </ui-machine-interface>
+    </div>
+  </div>
+</div>

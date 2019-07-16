@@ -26,8 +26,15 @@
               "apps/parking-ticketing-system/src/favicon.ico",
               "apps/parking-ticketing-system/src/assets"
             ],
-            "styles": ["apps/parking-ticketing-system/src/styles.scss"],
-            "scripts": []
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "apps/parking-ticketing-system/src/styles.scss"
+            ],
+            "scripts": [
+              "./node_modules/jquery/dist/jquery.min.js",
+              "./node_modules/bootstrap/dist/js/bootstrap.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -123,6 +130,291 @@
               "!apps/parking-ticketing-system-e2e/**"
             ]
           }
+        }
+      }
+    },
+    "parking-payments-system": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/workspace:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/parking-payments-system",
+      "sourceRoot": "apps/parking-payments-system/src",
+      "prefix": "parking-ticketing-system",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/parking-payments-system",
+            "index": "apps/parking-payments-system/src/index.html",
+            "main": "apps/parking-payments-system/src/main.ts",
+            "polyfills": "apps/parking-payments-system/src/polyfills.ts",
+            "tsConfig": "apps/parking-payments-system/tsconfig.app.json",
+            "assets": [
+              "apps/parking-payments-system/src/favicon.ico",
+              "apps/parking-payments-system/src/assets"
+            ],
+            "styles": [
+              "./node_modules/jquery/dist/jquery.min.js",
+              "./node_modules/bootstrap/dist/js/bootstrap.js",
+              "apps/parking-payments-system/src/styles.scss"
+            ],
+            "scripts": [
+              "./node_modules/jquery/dist/jquery.min.js",
+              "./node_modules/bootstrap/dist/js/bootstrap.js"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/parking-payments-system/src/environments/environment.ts",
+                  "with": "apps/parking-payments-system/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "parking-payments-system:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "parking-payments-system:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "parking-payments-system:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/parking-payments-system/tsconfig.app.json",
+              "apps/parking-payments-system/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/parking-payments-system/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/parking-payments-system/jest.config.js",
+            "tsConfig": "apps/parking-payments-system/tsconfig.spec.json",
+            "setupFile": "apps/parking-payments-system/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "parking-payments-system-e2e": {
+      "root": "apps/parking-payments-system-e2e",
+      "sourceRoot": "apps/parking-payments-system-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/parking-payments-system-e2e/cypress.json",
+            "tsConfig": "apps/parking-payments-system-e2e/tsconfig.e2e.json",
+            "devServerTarget": "parking-payments-system:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "parking-payments-system:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "apps/parking-payments-system-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/parking-payments-system-e2e/**"
+            ]
+          }
+        }
+      }
+    },
+    "angular-material": {
+      "projectType": "library",
+      "root": "libs/angular-material",
+      "sourceRoot": "libs/angular-material/src",
+      "prefix": "parking-ticketing-system",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/angular-material/tsconfig.lib.json",
+              "libs/angular-material/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/angular-material/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/angular-material/jest.config.js",
+            "tsConfig": "libs/angular-material/tsconfig.spec.json",
+            "setupFile": "libs/angular-material/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "domain": {
+      "projectType": "library",
+      "root": "libs/domain",
+      "sourceRoot": "libs/domain/src",
+      "prefix": "parking-ticketing-system",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/domain/tsconfig.lib.json",
+              "libs/domain/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/domain/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/domain/jest.config.js",
+            "tsConfig": "libs/domain/tsconfig.spec.json",
+            "setupFile": "libs/domain/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "ui-keypad": {
+      "projectType": "library",
+      "root": "libs/ui-keypad",
+      "sourceRoot": "libs/ui-keypad/src",
+      "prefix": "ui",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/ui-keypad/tsconfig.lib.json",
+              "libs/ui-keypad/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/ui-keypad/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/ui-keypad/jest.config.js",
+            "tsConfig": "libs/ui-keypad/tsconfig.spec.json",
+            "setupFile": "libs/ui-keypad/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "ui-machine-interface": {
+      "projectType": "library",
+      "root": "libs/ui-machine-interface",
+      "sourceRoot": "libs/ui-machine-interface/src",
+      "prefix": "ui",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/ui-machine-interface/tsconfig.lib.json",
+              "libs/ui-machine-interface/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/ui-machine-interface/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/ui-machine-interface/jest.config.js",
+            "tsConfig": "libs/ui-machine-interface/tsconfig.spec.json",
+            "setupFile": "libs/ui-machine-interface/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "ui-ticket-print": {
+      "projectType": "library",
+      "root": "libs/ui-ticket-print",
+      "sourceRoot": "libs/ui-ticket-print/src",
+      "prefix": "ui",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/ui-ticket-print/tsconfig.lib.json",
+              "libs/ui-ticket-print/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/ui-ticket-print/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/ui-ticket-print/jest.config.js",
+            "tsConfig": "libs/ui-ticket-print/tsconfig.spec.json",
+            "setupFile": "libs/ui-ticket-print/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
         }
       }
     }

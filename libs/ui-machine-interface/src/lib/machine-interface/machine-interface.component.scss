@@ -1,0 +1,76 @@
+@import "../../../../ui-ticket-print/src/lib/ticket-variables";
+
+$text-machine: white;
+$bg-machine: rgb(51, 51, 51);
+$p-machine: 1rem 1rem 1rem 1rem;
+$border-machine: 2rem groove gray;
+$text-shadow-machine: 2px 2px 6px black, 0 0 6px black;
+
+.machine {
+
+  color: $text-machine;
+
+  &-housing {
+    background-color: $bg-machine;
+    padding: $p-machine;
+    border: $border-machine;
+  }
+
+  &-title {
+    text-shadow: $text-shadow-machine;
+  }
+
+  &-screen {
+    background-color: #101010;
+    min-height: 350px;
+    border: 1px solid silver;
+
+    &-disabled {
+      background-color: black!important;
+      color:black;
+    }
+  }
+
+  &-stand {
+    background-color: rgb(51, 51, 51);
+    border-right: 1rem solid black;
+    border-left: 1rem solid black;
+  }
+}
+
+button:focus {
+  outline: none;
+  border: 0;
+}
+
+.breaker {
+  display: block;
+  border-top: 0.25rem solid white;
+  margin: 0 1rem;
+}
+
+::ng-deep .mat-raised-button{
+  height:48px;
+  width:64px;
+  font-size:24px;
+}
+
+.mat-icon-button.xl {
+
+  width: 8rem;
+  height: 4rem;
+  line-height: 4rem;
+
+  .mat-icon {
+    font-size: 4rem;
+    width: 8rem;
+    height: 4rem;
+    line-height: 4rem;
+  }
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+

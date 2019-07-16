@@ -1,0 +1,17 @@
+{
+  "extends": "../../tslint.json",
+  "rules": {
+    "directive-selector": [
+      true,
+      "attribute",
+      "parkingTicketingSystem",
+      "camelCase"
+    ],
+    "component-selector": [
+      true,
+      "element",
+      "parking-ticketing-system",
+      "kebab-case"
+    ]
+  }
+}
